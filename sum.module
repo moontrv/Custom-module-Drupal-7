@@ -17,7 +17,7 @@ function sum_menu() {
 		);
 	return $items;
 }
-
+// construct the sum form on UI with 3 fields 
 function sum_form() {
 	$form = array();
 	$form['left_number'] = array(
@@ -39,7 +39,7 @@ function sum_form() {
 
 	return $form;
 }
-
+// process the submit data - store the sum in $_SESSION[] array
 function sum_form_submit($form, &$form_state) {
 	$first_number = $form_state['values']['left_number'];
 	$second_number = $form_state['values']['right_number'];
@@ -47,7 +47,7 @@ function sum_form_submit($form, &$form_state) {
 	$_SESSION['sum_output'] = $sum; 
 	$form_state['redirect'] = 'success';
 }
-
+// callback function of $items['success']
 function sum_success() {
 	$answer = $_SESSION['sum_output'];
 	return "You calculated a sum! The answer is $answer";
